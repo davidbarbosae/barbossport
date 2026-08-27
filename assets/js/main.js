@@ -1484,10 +1484,21 @@
     // Menú móvil
     const mobileBtn = document.getElementById('mobile-menu-toggle-btn');
     const navMenu = document.getElementById('main-nav-menu');
+    const hamburgerIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>`;
+    const closeIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+
     if (mobileBtn && navMenu) {
-      mobileBtn.addEventListener('click', () => navMenu.classList.toggle('mobile-open'));
+      mobileBtn.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('mobile-open');
+        mobileBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        mobileBtn.innerHTML = isOpen ? closeIcon : hamburgerIcon;
+      });
       navMenu.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => navMenu.classList.remove('mobile-open'));
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('mobile-open');
+          mobileBtn.setAttribute('aria-expanded', 'false');
+          mobileBtn.innerHTML = hamburgerIcon;
+        });
       });
     }
 
