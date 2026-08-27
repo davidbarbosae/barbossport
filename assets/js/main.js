@@ -555,6 +555,57 @@
     }
   ];
 
+  const customerReviews = [
+    {
+      author: 'Mateo Restrepo',
+      city: 'Medellín, Colombia',
+      rating: 5,
+      productName: 'Personaliza tu uniforme de fútbol',
+      date: 'Hace 2 días',
+      comment: 'Mandamos a hacer los uniformes para el equipo del torneo y la calidad superó todas las expectativas. Elegimos nuestros colores y el despacho por WhatsApp fue súper rápido.'
+    },
+    {
+      author: 'Valeria Gómez',
+      city: 'Bogotá, Colombia',
+      rating: 5,
+      productName: 'Personaliza tu uniforme de voleibol',
+      date: 'Hace 4 días',
+      comment: 'Excelente ajuste para jugar voleibol. Pudimos personalizar los colores de nuestro equipo y la tela transpira perfecto. Recomendadísima la marca.'
+    },
+    {
+      author: 'Carlos Eduardo M.',
+      city: 'Cali, Colombia',
+      rating: 5,
+      productName: 'Personaliza tu uniforme de básquetbol',
+      date: 'Hace 1 semana',
+      comment: 'La malla es de primer nivel, no pesa nada cuando uno está sudando. Los colores se ven brutales en la duela.'
+    },
+    {
+      author: 'Andrea Silva',
+      city: 'Barranquilla, Colombia',
+      rating: 5,
+      productName: 'Maleta',
+      date: 'Hace 2 semanas',
+      comment: 'La maleta tiene espacio para todo: calzado, ropa de cambio y es súper resistente. Compramos 6 unidades para el club y el envío fue gratis.'
+    },
+    {
+      author: 'Sebastián Morales',
+      city: 'Bucaramanga, Colombia',
+      rating: 5,
+      productName: 'Conjunto Urbano 1',
+      date: 'Hace 3 semanas',
+      comment: 'El corte oversize y la tela son de otro nivel. Se nota el estilo y la calidad en cada costura. 100% recomendado.'
+    },
+    {
+      author: 'Daniela Cardona',
+      city: 'Pereira, Colombia',
+      rating: 5,
+      productName: 'Canguro Táctico Pechera',
+      date: 'Hace 1 mes',
+      comment: 'Súper práctico para salir a entrenar y andar en moto o bicicleta. Impermeable de verdad y con acabados de primera.'
+    }
+  ];
+
   // 3. Gestor de Estado Reactivo
   const store = {
     currency: localStorage.getItem('barbos_currency') || 'COP',
@@ -742,6 +793,7 @@
       updateHeaderBadges();
       renderCartDrawer();
       renderWishlistDrawer();
+      renderReviews();
     }
   };
 
@@ -1426,6 +1478,38 @@
     });
 
     overlay.classList.add('active');
+  }
+
+  function renderReviews() {
+    const container = document.getElementById('reviews-grid-container');
+    if (!container) return;
+
+    container.innerHTML = customerReviews.map(r => `
+      <div class="review-card">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div class="review-stars">
+            ${'★'.repeat(r.rating)}
+          </div>
+          <span style="font-size: 0.75rem; color: var(--text-dim);">${r.date}</span>
+        </div>
+
+        <div style="font-size: 0.82rem; font-weight: 700; color: #FFFFFF;">
+          Prenda: ${r.productName}
+        </div>
+
+        <p class="review-comment">"${r.comment}"</p>
+
+        <div class="reviewer-meta">
+          <div>
+            <div class="reviewer-name">${r.author}</div>
+            <div class="reviewer-location">${r.city}</div>
+          </div>
+          <span class="badge badge-dark" style="font-size: 0.68rem; color: #FFFFFF; border-color: rgba(255, 255, 255, 0.3);">
+            ✓ Compra Verificada
+          </span>
+        </div>
+      </div>
+    `).join('');
   }
 
   function showToast(msg) {

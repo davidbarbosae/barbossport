@@ -691,5 +691,21 @@ export const customerReviews = [
     productName: 'Maleta',
     date: 'Hace 2 semanas',
     comment: 'La maleta tiene espacio para todo: calzado, ropa de cambio y es súper resistente. Compramos 6 unidades para el club y el envío fue gratis.'
+  },
+  {
+    author: 'Sebastián Morales',
+    city: 'Bucaramanga, Colombia',
+    rating: 5,
+    productName: 'Conjunto Urbano 1',
+    date: 'Hace 3 semanas',
+    comment: 'El corte oversize y la tela son de otro nivel. Se nota el estilo y la calidad en cada costura. 100% recomendado.'
+  },
+  {
+    author: 'Daniela Cardona',
+    city: 'Pereira, Colombia',
+    rating: 5,
+    productName: 'Canguro Táctico Pechera',
+    date: 'Hace 1 mes',
+    comment: 'Súper práctico para salir a entrenar y andar en moto o bicicleta. Impermeable de verdad y con acabados de primera.'
   }
 ];
