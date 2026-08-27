@@ -442,8 +442,8 @@ export function openProductModal(productId) {
           </div>
 
           <!-- Direct WhatsApp button -->
-          <button class="btn btn-whatsapp" id="modal-whatsapp-direct-btn" style="width: 100%;">
-            ${Icons.whatsapp} Pedir directamente por WhatsApp (+57 314 3937314)
+          <button class="btn btn-whatsapp" id="modal-whatsapp-direct-btn" style="width: 100%; font-size: 0.95rem; padding: 0.95rem 1.25rem;">
+            ${Icons.whatsapp} Preguntar y comprar por WhatsApp
           </button>
 
           <!-- Specs Accordion -->
@@ -526,9 +526,11 @@ export function openProductModal(productId) {
 
     // WhatsApp direct
     document.getElementById('modal-whatsapp-direct-btn')?.addEventListener('click', () => {
-      const priceText = store.formatPrice(product.priceCOP, product.priceUSD, product.priceEUR, product.priceMXN);
-      const text = `¡Hola BARBOS! Quiero comprar esta prenda:%0A%0A*Producto:* ${product.name}%0A*Talla:* ${selectedSize}%0A*Color:* ${selectedColor}%0A*Cantidad:* ${quantity}%0A*Precio Unitario:* ${priceText}%0A%0A¿Tienen disponibilidad para despacho?`;
-      window.open(`https://wa.me/${siteConfig.whatsappNumber}?text=${text}`, '_blank');
+      const priceFormatted = store.formatPrice(product.priceCOP * quantity);
+      const colorPart = selectedColor ? `, Color: ${selectedColor}` : '';
+      const qtyPart = quantity > 1 ? `, Cantidad: ${quantity}` : '';
+      const text = `Hola, estoy interesado en el producto "${product.name}" (Talla: ${selectedSize}${colorPart}${qtyPart}) que tiene el precio de ${priceFormatted}. ¿Me podrían confirmar disponibilidad para continuar con la compra?`;
+      window.open(`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(text)}`, '_blank');
     });
 
     // Accordions toggle
@@ -568,240 +570,6 @@ export function openWishlistDrawer() {
     drawer.classList.add('active');
     backdrop.classList.add('active');
   }
-}
-
-export function openCheckoutModal() {
-  if (store.cart.length === 0) {
-    showToast('Tu carrito está vacío para procesar el pedido.');
-    return;
-  }
-
-  // Close cart drawer
-  document.getElementById('cart-drawer')?.classList.remove('active');
-  document.getElementById('cart-drawer-backdrop')?.classList.remove('active');
-
-  const overlay = document.getElementById('checkout-modal-overlay');
-  const container = document.getElementById('checkout-modal-content');
-  if (!overlay || !container) return;
-
-  const totalFormatted = store.getCartTotalFormatted();
-  const subtotalFormatted = store.getCartSubtotalFormatted();
-  const discountAmount = store.getCartDiscountCOP();
-  const isFreeShip = store.isFreeShipping();
-  const shippingFormatted = isFreeShip ? 'GRATIS' : store.formatPrice(siteConfig.shippingCostCOP);
-
-  container.innerHTML = `
-    <button class="modal-close-btn" id="checkout-close-btn">${Icons.close}</button>
-
-    <div class="checkout-modal-container">
-      <div style="margin-bottom: 2rem; border-bottom: 1px solid var(--bg-card-border); padding-bottom: 1rem;">
-        <span class="badge badge-white">PAGO SEGURO BARBOS®</span>
-        <h2 style="font-family: var(--font-display); font-size: 1.85rem; margin-top: 0.4rem;">Finalizar Pedido</h2>
-      </div>
-
-      <div class="checkout-steps-grid" id="checkout-main-grid">
-        <!-- Form -->
-        <div>
-          <h3 style="font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 1rem; color: #FFFFFF;">
-            1. Datos de Despacho
-          </h3>
-
-          <form id="checkout-form">
-            <div class="form-group">
-              <label>Nombre y Apellidos *</label>
-              <input type="text" id="chk-name" class="form-input" placeholder="Ej. Carlos Mendoza" required />
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-              <div class="form-group">
-                <label>Teléfono WhatsApp *</label>
-                <input type="tel" id="chk-phone" class="form-input" placeholder="+57 314 3937314" required />
-              </div>
-              <div class="form-group">
-                <label>Correo Electrónico *</label>
-                <input type="email" id="chk-email" class="form-input" placeholder="carlos@gmail.com" required />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label>Dirección Completa de Entrega *</label>
-              <input type="text" id="chk-address" class="form-input" placeholder="Calle / Carrera / Apto o Casa" required />
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-              <div class="form-group">
-                <label>Ciudad / Municipio *</label>
-                <input type="text" id="chk-city" class="form-input" placeholder="Medellín / Bogotá / etc." required />
-              </div>
-              <div class="form-group">
-                <label>Departamento / Región</label>
-                <input type="text" id="chk-state" class="form-input" placeholder="Antioquia / Cundinamarca" />
-              </div>
-            </div>
-
-            <h3 style="font-family: var(--font-heading); font-size: 1.1rem; margin: 1.5rem 0 1rem 0; color: #FFFFFF;">
-              2. Método de Pago Único Oficial
-            </h3>
-
-            <div class="payment-method-selector" style="grid-template-columns: 1fr;">
-              <div class="payment-card-option active" style="border-color: #FFFFFF;">
-                <div style="font-size: 1.6rem; margin-bottom: 0.4rem;">📱</div>
-                <h4 style="font-size: 1.05rem; color: #FFFFFF;">Nequi / Daviplata / Llave Bre-B</h4>
-                <p style="font-size: 0.88rem; color: #FFFFFF; font-weight: 700; margin-top: 0.3rem;">
-                  Número de cuenta / Transferencia: <span style="background: rgba(255,255,255,0.15); padding: 0.2rem 0.5rem; border-radius: 4px;">+57 314 3937314</span>
-                </p>
-                <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem;">
-                  Acepta transferencias directas y pagos PSE a este número.
-                </p>
-              </div>
-            </div>
-
-            <button type="submit" class="btn btn-white btn-lg" style="width: 100%; margin-top: 1.5rem;">
-              ${Icons.shield} Confirmar y Registrar Pedido (${totalFormatted})
-            </button>
-          </form>
-        </div>
-
-        <!-- Summary -->
-        <div style="background: var(--bg-surface); padding: 1.5rem; border-radius: var(--radius-xs); border: 1px solid var(--bg-card-border); height: fit-content;">
-          <h4 style="font-family: var(--font-heading); font-size: 1rem; margin-bottom: 1rem; border-bottom: 1px solid var(--bg-card-border); padding-bottom: 0.5rem;">
-            Resumen del Pedido (${store.getCartCount()} prendas)
-          </h4>
-
-          <div style="display: flex; flex-direction: column; gap: 0.75rem; max-height: 220px; overflow-y: auto; margin-bottom: 1rem;">
-            ${store.cart.map(i => `
-              <div style="display: flex; gap: 0.75rem; align-items: center; font-size: 0.85rem;">
-                <img src="${i.image}" alt="${i.name}" style="width: 42px; height: 42px; border-radius: 4px; object-fit: cover;" />
-                <div style="flex-grow: 1;">
-                  <div style="font-weight: 700; color: #FFFFFF;">${i.name}</div>
-                  <div style="color: var(--text-muted); font-size: 0.75rem;">${i.size} • ${i.color} • x${i.quantity}</div>
-                </div>
-                <div style="font-weight: 700; color: #FFFFFF;">
-                  ${store.formatPrice(i.priceCOP * i.quantity)}
-                </div>
-              </div>
-            `).join('')}
-          </div>
-
-          <div class="cart-summary-rows">
-            <div class="summary-row">
-              <span>Subtotal:</span>
-              <span>${subtotalFormatted}</span>
-            </div>
-            ${discountAmount > 0 ? `
-              <div class="summary-row" style="color: #FFFFFF;">
-                <span>Descuento aplicado:</span>
-                <span>-${store.formatPrice(discountAmount)}</span>
-              </div>
-            ` : ''}
-            <div class="summary-row">
-              <span>Envío Colombia:</span>
-              <span style="color: #FFFFFF; font-weight: 700;">${shippingFormatted}</span>
-            </div>
-            <div class="summary-row total-row">
-              <span>Total a pagar:</span>
-              <span class="total-amount">${totalFormatted}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-
-  // Close event
-  document.getElementById('checkout-close-btn')?.addEventListener('click', () => {
-    overlay.classList.remove('active');
-  });
-
-  // Form submit
-  document.getElementById('checkout-form')?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('chk-name').value;
-    const phone = document.getElementById('chk-phone').value;
-    const email = document.getElementById('chk-email').value;
-    const city = document.getElementById('chk-city').value;
-    const address = document.getElementById('chk-address').value;
-    const orderId = `BBS-${Math.floor(100000 + Math.random() * 900000)}`;
-
-    const savedItems = [...store.cart];
-    const finalTotal = store.getCartTotalFormatted();
-    const isFree = store.isFreeShipping();
-    const shipText = isFree ? 'GRATIS (6+ unidades)' : '$ 20.000 COP';
-    store.clearCart();
-
-    container.innerHTML = `
-      <button class="modal-close-btn" onclick="document.getElementById('checkout-modal-overlay').classList.remove('active');">${Icons.close}</button>
-      
-      <div class="checkout-modal-container" style="text-align: center; max-width: 600px;">
-        <div class="order-ticket">
-          <div class="ticket-header">
-            <div style="margin-bottom: 0.8rem;">
-              <img src="assets/images/logo.png" alt="Barbos" style="max-height: 56px; width: auto; margin: 0 auto; display: block;" />
-            </div>
-            <span class="badge badge-white" style="margin-bottom: 0.5rem;">¡ORDEN REGISTRADA!</span>
-            <div class="ticket-order-id">ORDEN #${orderId}</div>
-            <p style="color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.9rem;">
-              Gracias <strong>${name}</strong>, tu pedido está registrado para despacho a <strong>${city}</strong>.
-            </p>
-          </div>
-
-          <div style="background: var(--bg-surface); padding: 1.25rem; border-radius: var(--radius-xs); margin-bottom: 1.5rem; text-align: left; font-size: 0.88rem;">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
-              <span style="color: var(--text-muted);">Dirección de entrega:</span>
-              <span style="font-weight: 700; color: #FFFFFF;">${address}</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
-              <span style="color: var(--text-muted);">WhatsApp de contacto:</span>
-              <span style="font-weight: 700; color: #FFFFFF;">${phone}</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
-              <span style="color: var(--text-muted);">Costo de envío:</span>
-              <span style="font-weight: 700; color: #FFFFFF;">${shipText}</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--bg-card-border); padding-top: 0.4rem; font-weight: 700;">
-              <span>Total a Transferir:</span>
-              <span style="color: #FFFFFF; font-size: 1.1rem;">${finalTotal}</span>
-            </div>
-          </div>
-
-          <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.25); padding: 1rem; border-radius: var(--radius-xs); margin-bottom: 1.5rem; text-align: left; font-size: 0.85rem;">
-            <div style="font-weight: 700; color: #FFFFFF; margin-bottom: 0.3rem;">📱 Datos de Pago (Nequi / Daviplata / Llave Bre-B):</div>
-            <div>• Número: <strong>+57 314 3937314</strong></div>
-            <div style="margin-top: 0.4rem;">✉️ Notificaciones oficiales a: <strong>sportbboss@gmail.com</strong></div>
-          </div>
-
-          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <button class="btn btn-white" id="notify-whatsapp-ticket-btn">
-              ${Icons.whatsapp} Enviar Comprobante por WhatsApp (+57 314 3937314)
-            </button>
-            <button class="btn btn-secondary" id="notify-email-ticket-btn">
-              ${Icons.mail} Notificar por Correo (sportbboss@gmail.com)
-            </button>
-            <button class="btn btn-secondary" onclick="document.getElementById('checkout-modal-overlay').classList.remove('active');">
-              Volver a la Tienda
-            </button>
-          </div>
-        </div>
-      </div>
-    `;
-
-    document.getElementById('notify-whatsapp-ticket-btn')?.addEventListener('click', () => {
-      const itemsList = savedItems.map(i => `• ${i.name} (Talla: ${i.size}, Color: ${i.color}, x${i.quantity})`).join('%0A');
-      const text = `¡Hola BARBOS! Acabo de registrar mi pedido en la web:%0A%0A*No. Orden:* ${orderId}%0A*Cliente:* ${name}%0A*Teléfono:* ${phone}%0A*Correo:* ${email}%0A*Ciudad:* ${city}%0A*Dirección:* ${address}%0A%0A*Prendas:*%0A${itemsList}%0A%0A*Envío:* ${shipText}%0A*Total:* ${finalTotal}%0A%0AAdjunto mi comprobante de pago por Nequi/Daviplata/Llave Bre-B.`;
-      window.open(`https://wa.me/${siteConfig.whatsappNumber}?text=${text}`, '_blank');
-    });
-
-    document.getElementById('notify-email-ticket-btn')?.addEventListener('click', () => {
-      const itemsList = savedItems.map(i => `• ${i.name} (Talla: ${i.size}, Color: ${i.color}, x${i.quantity})`).join('\n');
-      const subject = encodeURIComponent(`Nuevo Pedido Web #${orderId} - ${name}`);
-      const body = encodeURIComponent(`Hola BARBOS,\n\nSe ha registrado un nuevo pedido en la tienda web:\n\nNo. Orden: ${orderId}\nCliente: ${name}\nTeléfono: ${phone}\nCorreo: ${email}\nCiudad: ${city}\nDirección: ${address}\n\nPrendas:\n${itemsList}\n\nEnvío: ${shipText}\nTotal: ${finalTotal}\n\nMétodo de pago: Nequi / Daviplata / Llave Bre-B (+57 314 3937314)`);
-      window.open(`mailto:${siteConfig.email}?subject=${subject}&body=${body}`, '_blank');
-    });
-
-    showToast(`¡Orden #${orderId} creada exitosamente!`);
-  });
-
-  overlay.classList.add('active');
 }
 
 export function renderReviews() {

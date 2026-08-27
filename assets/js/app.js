@@ -13,7 +13,6 @@ import {
   openSizeGuideModal,
   openCartDrawer,
   openWishlistDrawer,
-  openCheckoutModal,
   renderLookbook,
   renderReviews,
   renderFAQ,
@@ -225,33 +224,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 10. Pedido por WhatsApp
+  // 10. Pedido por WhatsApp desde el Carrito
   document.getElementById('cart-whatsapp-checkout-btn')?.addEventListener('click', () => {
     if (store.cart.length === 0) {
       showToast('Tu carrito está vacío');
       return;
     }
 
-    const itemsText = store.cart.map(item => 
-      `• *${item.name}*%0A  Talla: ${item.size} | Color: ${item.color} | Cant: ${item.quantity} | ${store.formatPrice(item.priceCOP * item.quantity)}`
-    ).join('%0A%0A');
+    let text = '';
+    if (store.cart.length === 1) {
+      const item = store.cart[0];
+      const colorPart = item.color ? `, Color: ${item.color}` : '';
+      const qtyPart = item.quantity > 1 ? `, Cantidad: ${item.quantity}` : '';
+      const pr = store.formatPrice(item.priceCOP * item.quantity);
+      text = `Hola, estoy interesado en el producto "${item.name}" (Talla: ${item.size}${colorPart}${qtyPart}) que tiene el precio de ${pr}. ¿Me podrían confirmar disponibilidad para continuar con la compra?`;
+    } else {
+      const itemsList = store.cart.map(i => {
+        const colorPart = i.color ? `, Color: ${i.color}` : '';
+        const qtyPart = i.quantity > 1 ? `, Cant: ${i.quantity}` : '';
+        const pr = store.formatPrice(i.priceCOP * i.quantity);
+        return `• "${i.name}" (Talla: ${i.size}${colorPart}${qtyPart}) - ${pr}`;
+      }).join('\n');
 
-    const subtotalText = store.getCartSubtotalFormatted();
-    const discountText = store.appliedCoupon ? store.formatPrice(store.getCartDiscountCOP()) : null;
-    const totalText = store.getCartTotalFormatted();
+      const tot = store.getCartTotalFormatted();
+      const isFree = store.isFreeShipping();
+      const shipStr = isFree ? 'GRATIS' : '$ 20.000 COP';
+      const disc = store.appliedCoupon ? `\nDescuento aplicado (${store.appliedCoupon.code}): -${store.formatPrice(store.getCartDiscountCOP())}` : '';
 
-    let message = `¡Hola BARBOS®! Quiero realizar el siguiente pedido:%0A%0A${itemsText}%0A%0A────────────────────%0A*Subtotal:* ${subtotalText}`;
-    if (discountText) {
-      message += `%0A*Descuento (${store.appliedCoupon.code}):* -${discountText}`;
+      text = `Hola, estoy interesado en los siguientes productos para continuar con la compra:\n\n${itemsList}\n\n────────────────────\nEnvío: ${shipStr}${disc}\nTotal: ${tot}\n────────────────────\n¿Me podrían confirmar disponibilidad y los pasos para el pago por favor?`;
     }
-    message += `%0A*TOTAL:* ${totalText}%0A────────────────────%0A%0A¿Cuáles son los datos para realizar la transferencia o pago?`;
 
-    window.open(`https://wa.me/${siteConfig.whatsappNumber}?text=${message}`, '_blank');
-  });
-
-  // 11. Modal de pago en línea
-  document.getElementById('cart-online-checkout-btn')?.addEventListener('click', () => {
-    openCheckoutModal();
+    window.open(`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(text)}`, '_blank');
   });
 
   // 12. Controles de Guía de Tallas
