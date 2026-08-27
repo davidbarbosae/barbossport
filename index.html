@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BARBOS® | Ropa Deportiva & Urbana</title>
+  <meta name="description" content="BARBOS® - Ropa deportiva y urbana de alto rendimiento. Uniformes de fútbol, básquetbol, voleibol, ropa urbana, maletas y canguros tácticos. Envíos a Colombia y Estados Unidos." />
+  
+  <!-- Favicon Oficial -->
+  <link rel="icon" type="image/png" href="assets/images/logo.png" />
+
+  <!-- Tipografías de Google Fonts: Outfit e Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Hojas de Estilos CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       1. CABECERA Y NAVEGACIÓN
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- Logotipo Oficial de la Marca -->
+      <a href="#" class="brand-logo" title="Inicio BARBOS">
+        <img src="assets/images/logo.png" alt="BARBOS®" class="brand-logo-img" />
+      </a>
+
+      <!-- Menú de Navegación -->
+      <nav>
+        <ul class="nav-menu" id="main-nav-menu">
+          <li><a href="#colecciones" class="nav-link">Colecciones</a></li>
+          <li><a href="#catalogo" class="nav-link">Catálogo</a></li>
+          <li><a href="#rendimiento" class="nav-link">Rendimiento</a></li>
+          <li><a href="#referidos" class="nav-link">Plan de Referidos</a></li>
+          <li><a href="#faq" class="nav-link">Preguntas Frecuentes</a></li>
+        </ul>
+      </nav>
+
+      <!-- Acciones (Moneda, Favoritos, Carrito) -->
+      <div class="header-actions">
+        <!-- Selector de Moneda (Solo COP y USD) -->
+        <select id="currency-selector" class="currency-selector" title="Seleccionar Moneda">
+          <option value="COP">COP ($)</option>
+          <option value="USD">USD ($)</option>
+        </select>
+
+        <!-- Botón de Prendas Guardadas -->
+        <button class="action-btn" id="wishlist-toggle-btn" title="Ver Prendas Guardadas">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          <span class="action-badge" id="wishlist-badge-count" style="display: none;">0</span>
+        </button>
+
+        <!-- Botón de Carrito de Compras -->
+        <button class="action-btn" id="cart-toggle-btn" title="Ver Carrito de Compras">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+          <span class="action-badge" id="cart-badge-count" style="display: none;">0</span>
+        </button>
+
+        <!-- Menú Móvil -->
+        <button class="mobile-menu-btn" id="mobile-menu-toggle-btn" title="Abrir Menú de Navegación">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       2. CINTA DE NOTICIAS MONOCROMÁTICA
+       ========================================================================= -->
+  <div class="marquee-bar">
+    <div class="marquee-content">
+      ✈️ ¡ENVÍOS A ESTADOS UNIDOS 🇺🇸 Y TODA COLOMBIA 🇨🇴! • BARBOS® • ROPA DEPORTIVA Y URBANA DE ALTO RENDIMIENTO • CONJUNTOS URBANOS $85.000 • UNIFORMES DE FÚTBOL, BÁSQUETBOL Y VOLEIBOL $60.000 • MALETAS $75.000 • CANGUROS $40.000 • 🚚 Envío Colombia: $20.000 COP • ¡ENVÍO GRATIS POR COMPRAS DE 6 O MÁS UNIDADES! • DESPACHOS INTERNACIONALES A EE.UU. 🇺🇸 • PAGOS POR NEQUI, DAVIPLATA Y LLAVE BRE-B (+57 314 3937314) • NOTIFICACIONES A SPORTBBOSS@GMAIL.COM • 10% DE DESCUENTO CON EL CUPÓN <strong>BARBOS10</strong> •&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✈️ ¡ENVÍOS A ESTADOS UNIDOS 🇺🇸 Y TODA COLOMBIA 🇨🇴! • BARBOS® • ROPA DEPORTIVA Y URBANA DE ALTO RENDIMIENTO • CONJUNTOS URBANOS $85.000 • UNIFORMES DE FÚTBOL, BÁSQUETBOL Y VOLEIBOL $60.000 • MALETAS $75.000 • CANGUROS $40.000 • 🚚 Envío Colombia: $20.000 COP • ¡ENVÍO GRATIS POR COMPRAS DE 6 O MÁS UNIDADES! • DESPACHOS INTERNACIONALES A EE.UU. 🇺🇸 • PAGOS POR NEQUI, DAVIPLATA Y LLAVE BRE-B (+57 314 3937314) • NOTIFICACIONES A SPORTBBOSS@GMAIL.COM • 10% DE DESCUENTO CON EL CUPÓN <strong>BARBOS10</strong> •
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       3. SECCIÓN HERO (PORTADA CON LOGO GRANDE Y CENTRADO)
+       ========================================================================= -->
+  <section class="hero-section" id="hero">
+    <div class="hero-backdrop">
+      <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1800&q=85" alt="Barbos Ropa Deportiva" class="hero-backdrop-img" />
+      <div class="hero-backdrop-gradient"></div>
+    </div>
+
+    <div class="hero-content-full">
+      <!-- LOGO DEL HERO GRANDE Y CENTRADO -->
+      <div class="hero-brand-emblem-wrap">
+        <img src="assets/images/logo.png" alt="Logotipo Oficial Barbos" class="hero-brand-emblem" />
+      </div>
+
+      <div class="hero-badge-pill">
+        <span class="pulse-dot"></span>
+        <span>🇺🇸 Envíos a Estados Unidos & Toda Colombia 🇨🇴 • Colección Oficial BARBOS®</span>
+      </div>
+
+      <h1 class="hero-title">ELEVA TU <span class="highlight">PODER</span></h1>
+
+      <p class="hero-description">DISEÑADO CON ESTILO. CONSTRUIDO PARA EL DEPORTE.</p>
+
+      <div class="hero-cta-group">
+        <a href="#colecciones" class="btn btn-white btn-lg">
+          Ver Colecciones
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a href="#catalogo" class="btn btn-secondary btn-lg">
+          Catálogo Completo
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">+15.000</div>
+          <div class="stat-label">Prendas Entregadas</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">420 GSM</div>
+          <div class="stat-label">Algodón de Alto Gramaje</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">4.9 / 5.0</div>
+          <div class="stat-label">Calificación de Atletas</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. SECCIÓN VISUAL DE COLECCIONES PRINCIPALES (5 COLECCIONES BARBOS)
+       ========================================================================= -->
+  <section class="container section-padding" id="colecciones">
+    <div class="section-header">
+      <span class="section-tag">Líneas de Diseño</span>
+      <h2 class="section-title">Colecciones Principales BARBOS®</h2>
+      <p class="section-desc">Explora nuestras 5 categorías principales con confección especializada y tejidos de alto nivel.</p>
+    </div>
+
+    <div class="collections-grid-showcase">
+      <!-- 1. ROPA URBANA (Card Grande) -->
+      <div class="collection-card-lg" data-action="filter-cat" data-category="urbana">
+        <img src="assets/images/products/urbano-1.png" alt="Colección Ropa Urbana Barbos" class="collection-card-bg" />
+        <div class="collection-card-gradient"></div>
+        <div class="collection-card-content">
+          <span class="collection-card-tag">STREETWEAR • $85.000 COP</span>
+          <h3 class="collection-card-title">Ropa Urbana</h3>
+          <p class="collection-card-desc">7 conjuntos urbanos con acabados de alta costura, telas prémium de alto gramaje y máxima durabilidad.</p>
+          <button class="collection-card-btn">Ver 7 Conjuntos Urbanos →</button>
+        </div>
+      </div>
+
+      <!-- 2. UNIFORMES DE FÚTBOL (Card Grande) -->
+      <div class="collection-card-lg" data-action="filter-cat" data-category="futbol">
+        <img src="assets/images/products/futbol-1.png" alt="Uniformes de Fútbol Barbos" class="collection-card-bg" />
+        <div class="collection-card-gradient"></div>
+        <div class="collection-card-content">
+          <span class="collection-card-tag">FÚTBOL PRO • $60.000 COP</span>
+          <h3 class="collection-card-title">Uniformes de Fútbol</h3>
+          <p class="collection-card-desc">3 uniformes completos con tecnología de secado rápido y corte anatómico para máximo desempeño en la cancha.</p>
+          <button class="collection-card-btn">Ver 3 Uniformes de Fútbol →</button>
+        </div>
+      </div>
+
+      <!-- 3. UNIFORMES DE BÁSQUETBOL (Card Mediana) -->
+      <div class="collection-card-sm" data-action="filter-cat" data-category="basquetbol">
+        <img src="assets/images/products/basket-1.png" alt="Uniformes de Básquetbol Barbos" class="collection-card-bg" />
+        <div class="collection-card-gradient"></div>
+        <div class="collection-card-content">
+          <span class="collection-card-tag">BÁSQUETBOL • $60.000 COP</span>
+          <h3 class="collection-card-title">Uniformes de Básquetbol</h3>
+          <p class="collection-card-desc">3 uniformes en malla transpirable con esqueleto amplio y pantaloneta holgada para saltos y jugadas rápidas.</p>
+          <button class="collection-card-btn">Ver 3 Básquetbol →</button>
+        </div>
+      </div>
+
+      <!-- 4. UNIFORMES DE VOLEIBOL (Card Mediana) -->
+      <div class="collection-card-sm" data-action="filter-cat" data-category="voleibol">
+        <img src="assets/images/products/volley-1.png" alt="Uniformes de Voleibol Barbos" class="collection-card-bg" />
+        <div class="collection-card-gradient"></div>
+        <div class="collection-card-content">
+          <span class="collection-card-tag">VOLEIBOL • $60.000 COP</span>
+          <h3 class="collection-card-title">Uniformes de Voleibol</h3>
+          <p class="collection-card-desc">3 conjuntos técnicos ergonómicos de alta elasticidad diseñados para remates y recepciones intensas.</p>
+          <button class="collection-card-btn">Ver 3 Voleibol →</button>
+        </div>
+      </div>
+
+      <!-- 5. MALETAS & CANGUROS (Card Mediana) -->
+      <div class="collection-card-sm" data-action="filter-cat" data-category="accesorios">
+        <img src="assets/images/products/accesorio-1.png" alt="Maletas y Canguros Barbos" class="collection-card-bg" />
+        <div class="collection-card-gradient"></div>
+        <div class="collection-card-content">
+          <span class="collection-card-tag">MALETAS $75.000 • CANGUROS $40.000</span>
+          <h3 class="collection-card-title">Maletas & Canguros</h3>
+          <p class="collection-card-desc">4 accesorios tácticos impermeables confeccionados en lona balística con múltiples compartimentos.</p>
+          <button class="collection-card-btn">Ver 4 Accesorios →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       5. CATÁLOGO DE PRODUCTOS
+       ========================================================================= -->
+  <section class="container section-padding" id="catalogo">
+    <!-- BANNER DESTACADO DE ENVÍOS INTERNACIONALES A ESTADOS UNIDOS -->
+    <div class="usa-shipping-banner">
+      <div class="usa-shipping-content">
+        <span class="badge badge-white">✈️ COBERTURA INTERNACIONAL & NACIONAL</span>
+        <h3 class="usa-banner-title">¡TAMBIÉN REALIZAMOS ENVÍOS A ESTADOS UNIDOS! 🇺🇸</h3>
+        <p class="usa-banner-desc">Llevamos el poder y la calidad deportiva de BARBOS® a toda Colombia y directo a cualquier estado de EE.UU. para pedidos individuales, clubes y torneos.</p>
+      </div>
+      <div class="usa-shipping-cta">
+        <a href="https://wa.me/573143937314?text=¡Hola%20BARBOS!%20Quisiera%20solicitar%20información%20sobre%20un%20envío%20a%20Estados%20Unidos." target="_blank" rel="noopener noreferrer" class="btn btn-white">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></svg>
+          Cotizar Envío a EE.UU.
+        </a>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <span class="section-tag">Prendas Disponibles</span>
+      <h2 class="section-title">Catálogo Completo</h2>
+      <p class="section-desc">Selecciona por categoría o utiliza el buscador para encontrar tu prenda o uniforme ideal.</p>
+    </div>
+
+    <!-- Controles de Catálogo -->
+    <div class="catalog-controls">
+      <div class="controls-top">
+        <!-- Píldoras de Categoría -->
+        <div class="category-pills" id="category-pills-wrap">
+          <button class="pill-btn active" data-category="all">Todas las Prendas <span class="pill-count">20</span></button>
+          <button class="pill-btn" data-category="urbana">Ropa Urbana <span class="pill-count">7</span></button>
+          <button class="pill-btn" data-category="futbol">Uniformes de Fútbol <span class="pill-count">3</span></button>
+          <button class="pill-btn" data-category="basquetbol">Uniformes de Básquetbol <span class="pill-count">3</span></button>
+          <button class="pill-btn" data-category="voleibol">Uniformes de Voleibol <span class="pill-count">3</span></button>
+          <button class="pill-btn" data-category="accesorios">Maletas & Canguros <span class="pill-count">4</span></button>
+        </div>
+      </div>
+
+      <div class="controls-bottom">
+        <!-- Pestaña Única -->
+        <div class="gender-tabs">
+          <button class="gender-tab active" data-gender="all">Todos</button>
+        </div>
+
+        <!-- Búsqueda y Ordenación -->
+        <div class="filter-actions">
+          <div class="search-box">
+            <input type="text" id="catalog-search-input" placeholder="Buscar por prenda, uniforme o accesorio..." />
+            <span class="search-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </span>
+          </div>
+
+          <select id="catalog-sort-select" class="sort-select">
+            <option value="destacados">Destacados</option>
+            <option value="precio-menor">Precio: Menor a Mayor</option>
+            <option value="precio-mayor">Precio: Mayor a Menor</option>
+            <option value="calificados">Mejor Calificados</option>
+            <option value="descuento">Mayor Descuento</option>
+            <option value="nuevos">Novedades</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cuadrícula de Productos -->
+    <div class="products-grid" id="products-grid-container">
+      <!-- Inyectado mediante JavaScript de forma reactiva -->
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       7. PILARES DE CALIDAD Y RENDIMIENTO
+       ========================================================================= -->
+  <section class="container section-padding" id="rendimiento">
+    <div class="section-header">
+      <span class="section-tag">Ingeniería Textil</span>
+      <h2 class="section-title">Calidad Diseñada para el Deporte</h2>
+      <p class="section-desc">Cada prenda está estructurada para soportar partidos intensos, entrenamientos pesados y el ritmo de la calle.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-box">
+        <div class="feature-icon-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h4>Tejidos Transpirables</h4>
+        <p>Microfibras especializadas de evaporación veloz que mantienen el cuerpo fresco y seco en cada jugada.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4>Algodón Pesado 420 GSM</h4>
+        <p>Confección urbana de máxima densidad con caída impecable que no se deforma tras lavadas continuas.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-5l-3-4h-4v10Z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+        </div>
+        <h4>Envíos a Colombia y EE.UU. 🇺🇸</h4>
+        <p>Despachos diarios a toda Colombia y envíos directos a Estados Unidos con guía y rastreo internacional.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
+        </div>
+        <h4>Garantía de Ajuste</h4>
+        <p>¿Necesitas cambio de talla? Te ofrecemos asesoría y acompañamiento total en tus prendas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       8. TESTIMONIOS Y OPINIONES
+       ========================================================================= -->
+  <section class="container section-padding">
+    <div class="section-header">
+      <span class="section-tag">Comunidad Barbos</span>
+      <h2 class="section-title">Opiniones de Quienes Visten Barbos</h2>
+      <p class="section-desc">Equipos de fútbol, clubes de voleibol, jugadores de baloncesto y apasionados de la moda urbana.</p>
+    </div>
+
+    <div class="reviews-grid" id="reviews-grid-container">
+      <!-- Inyectado mediante JavaScript -->
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       9. SECCIÓN PLAN DE REFERIDOS
+       ========================================================================= -->
+  <section class="container section-padding" id="referidos">
+    <div class="newsletter-card">
+      <span class="badge badge-white" style="margin-bottom: 1rem;">PROGRAMA OFICIAL DE EMBAJADORES</span>
+      <h2 class="section-title" style="margin-bottom: 0.8rem;">Plan de Referidos BARBOS®</h2>
+      <p class="section-desc" style="max-width: 650px; margin: 0 auto 1.5rem auto;">
+        Recomienda la marca con tus amigos, compañeros de equipo y familiares. Gana <strong>15% de descuento</strong> en tu próxima compra por cada cliente nuevo que use tu código, y tu referido obtiene un <strong>10% de descuento inmediato</strong> en su primer pedido.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; max-width: 680px; margin: 0 auto 2rem auto; text-align: center;">
+        <div style="background: var(--bg-surface); border: 1px solid var(--bg-card-border); padding: 1rem; border-radius: var(--radius-xs);">
+          <div style="font-size: 1.5rem; margin-bottom: 0.25rem;">1️⃣</div>
+          <div style="font-weight: 700; font-size: 0.88rem; color: #FFFFFF;">Regístrate</div>
+          <div style="font-size: 0.75rem; color: var(--text-muted);">Genera tu código personalizado</div>
+        </div>
+        <div style="background: var(--bg-surface); border: 1px solid var(--bg-card-border); padding: 1rem; border-radius: var(--radius-xs);">
+          <div style="font-size: 1.5rem; margin-bottom: 0.25rem;">2️⃣</div>
+          <div style="font-weight: 700; font-size: 0.88rem; color: #FFFFFF;">Comparte</div>
+          <div style="font-size: 0.75rem; color: var(--text-muted);">Tu amigo recibe 10% OFF</div>
+        </div>
+        <div style="background: var(--bg-surface); border: 1px solid var(--bg-card-border); padding: 1rem; border-radius: var(--radius-xs);">
+          <div style="font-size: 1.5rem; margin-bottom: 0.25rem;">3️⃣</div>
+          <div style="font-weight: 700; font-size: 0.88rem; color: #FFFFFF;">Gana 15% OFF</div>
+          <div style="font-size: 0.75rem; color: var(--text-muted);">Por cada orden completada</div>
+        </div>
+      </div>
+
+      <form class="newsletter-form" id="referidos-form">
+        <input type="text" id="referido-name-input" placeholder="Tu Nombre o Apodo" required style="max-width: 180px;" />
+        <input type="email" id="referido-email-input" placeholder="Tu Correo Electrónico" required />
+        <button type="submit" class="btn btn-white">Obtener Mi Código</button>
+      </form>
+
+      <div id="referidos-result-box" style="display: none; max-width: 600px; margin: 0 auto;"></div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       10. PREGUNTAS FRECUENTES (FAQ)
+       ========================================================================= -->
+  <section class="container section-padding" id="faq">
+    <div class="section-header">
+      <span class="section-tag">Preguntas Frecuentes</span>
+      <h2 class="section-title">¿Tienes Dudas? Te Ayudamos</h2>
+      <p class="section-desc">Respuestas sobre pedidos, confección de uniformes deportivos para equipos, medios de pago y despachos.</p>
+    </div>
+
+    <div class="faq-wrap">
+      <div class="faq-item active">
+        <div class="faq-header">
+          <span>¿Hacen uniformes personalizados para equipos de fútbol, básquet o voleibol?</span>
+          <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="faq-content">
+          ¡Sí, totalmente! Confeccionamos uniformes completos para torneos, clubes, colegios y empresas con dorsales, nombres, patrocinadores y escudos personalizados. Contáctanos directo por WhatsApp al <strong>+57 314 3937314</strong> para cotizaciones por volumen.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-header">
+          <span>¿Realizan envíos a Estados Unidos?</span>
+          <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="faq-content">
+          ✈️ <strong>¡Sí! También realizamos envíos a Estados Unidos 🇺🇸.</strong> Para cotizar el costo de envío internacional escríbenos directamente al WhatsApp <strong>+57 314 3937314</strong> o al correo <strong>sportbboss@gmail.com</strong> indicando tu dirección, ciudad y estado en EE.UU. Te respondemos con el costo y tiempo estimado a la mayor brevedad.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-header">
+          <span>¿Cómo funciona la compra directa por WhatsApp?</span>
+          <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="faq-content">
+          En cada prenda o en el carrito tienes el botón "Pedir por WhatsApp", que genera automáticamente el mensaje con tus prendas, tallas, colores y total para que un asesor te atienda y coordine tu despacho de forma inmediata.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-header">
+          <span>¿Qué métodos de pago reciben y a qué número?</span>
+          <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="faq-content">
+          Recibimos pagos exclusivamente a través de <strong>Nequi</strong>, <strong>Daviplata</strong> y <strong>Llave Bre-B</strong> al número oficial <strong>+57 314 3937314</strong>. Al completar tu pedido recibes los datos exactos para realizar la transferencia.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-header">
+          <span>¿Cuánto cuesta el envío y cuándo es gratis?</span>
+          <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="faq-content">
+          El costo de envío estándar a toda Colombia es de <strong>$20.000 COP</strong>. ¡El envío es <strong>TOTALMENTE GRATIS</strong> si compras 6 o más prendas en el mismo pedido! Para envíos a EE.UU. cotizamos directamente por WhatsApp o correo.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-header">
+          <span>¿A qué correo llegan las notificaciones y confirmaciones?</span>
+          <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="faq-content">
+          Todas las compras realizadas en línea y notificaciones de pedido se envían directamente a <strong>sportbboss@gmail.com</strong> para su preparación y despacho oportuno.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-header">
+          <span>¿Cómo funciona el Plan de Referidos?</span>
+          <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="faq-content">
+          Al registrarte en el Plan de Referidos recibes un código único. Cuando un amigo realiza su primera compra con tu código, él obtiene un 10% de descuento y a ti te otorgamos un 15% de descuento en tu siguiente pedido.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       11. PIE DE PÁGINA CON REDES SOCIALES OFICIALES
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand-logo" style="margin-bottom: 1.2rem;">
+          <img src="assets/images/logo.png" alt="BARBOS®" class="brand-logo-img" />
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
+          Ropa deportiva y urbana de alta calidad. Uniformes profesionales para equipos y prendas de alto gramaje para atletas y amantes del estilo.
+        </p>
+
+        <!-- Redes Sociales Oficiales: Instagram, WhatsApp, Facebook y TikTok -->
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/barbos_sport/" target="_blank" rel="noopener noreferrer" class="action-btn" title="Instagram Oficial (@barbos_sport)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+          </a>
+
+          <!-- WhatsApp (+57 314 3937314) -->
+          <a href="https://wa.me/573143937314" target="_blank" rel="noopener noreferrer" class="action-btn" title="WhatsApp Oficial (+57 314 3937314)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></svg>
+          </a>
+
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/people/Barbos-sport/61582216238608/" target="_blank" rel="noopener noreferrer" class="action-btn" title="Facebook Oficial (Barbos sport)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+
+          <!-- TikTok -->
+          <a href="https://www.tiktok.com/@barbos_sport" target="_blank" rel="noopener noreferrer" class="action-btn" title="TikTok Oficial (@barbos_sport)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.52a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3 15.25a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.41a8.28 8.28 0 0 0 4.91 1.6V6.57a4.8 4.8 0 0 1-1-.02z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Colecciones</h4>
+        <ul class="footer-links">
+          <li><a href="#catalogo">Ropa Urbana</a></li>
+          <li><a href="#catalogo">Uniformes de Fútbol</a></li>
+          <li><a href="#catalogo">Uniformes de Básquetbol</a></li>
+          <li><a href="#catalogo">Uniformes de Voleibol</a></li>
+          <li><a href="#catalogo">Maletas, Tulas y Canguros</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Atención al Cliente</h4>
+        <ul class="footer-links">
+          <li><a href="#faq">Preguntas Frecuentes</a></li>
+          <li><a href="https://wa.me/573143937314" target="_blank">WhatsApp Directo (+57 314 3937314)</a></li>
+          <li><a href="#faq">Cambios y Garantías</a></li>
+          <li><a href="javascript:void(0)" onclick="document.getElementById('size-guide-modal-overlay').classList.add('active');">Guía de Tallas (6 - XL)</a></li>
+          <li><a href="#referidos">Plan de Referidos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Métodos de Pago Oficiales</h4>
+        <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; margin-bottom: 1rem;">
+          🔒 Pagos directos al <strong>+57 314 3937314</strong>. Despachos garantizados a Colombia y EE.UU. 🇺🇸
+        </p>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <span class="badge badge-dark">NEQUI</span>
+          <span class="badge badge-dark">DAVIPLATA</span>
+          <span class="badge badge-dark">LLAVE BRE-B</span>
+        </div>
+        <p style="color: var(--text-dim); font-size: 0.78rem; margin-top: 0.8rem;">
+          Notificaciones: <strong>sportbboss@gmail.com</strong>
+        </p>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>© 2026 BARBOS® - Todos los derechos reservados. Ropa Deportiva y Urbana.</div>
+      <div>Envíos a Colombia y Estados Unidos 🇺🇸</div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       MODALES Y PANELES LATERALES
+       ========================================================================= -->
+
+  <!-- Modal de Detalle de Prenda -->
+  <div class="modal-overlay" id="product-modal-overlay">
+    <div class="modal-container" id="product-modal-content">
+      <!-- Inyectado mediante JavaScript -->
+    </div>
+  </div>
+
+  <!-- Modal de Guía de Tallas Oficial BARBOS® -->
+  <div class="modal-overlay" id="size-guide-modal-overlay">
+    <div class="modal-container size-guide-container">
+      <button class="modal-close-btn" id="size-guide-modal-close">✕</button>
+
+      <div class="size-guide-header">
+        <span class="badge badge-white">MEDIDAS OFICIALES BARBOS®</span>
+        <h2 style="font-family: var(--font-display); font-size: 1.75rem; margin-top: 0.4rem;">Guía de Tallas & Ajuste</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Consulta las medidas exactas de largo y ancho en centímetros para elegir tu talla ideal.</p>
+      </div>
+
+      <!-- Selector de Tipo de Prenda: Jersey Hombre vs Jersey Chicas -->
+      <div class="guide-tab-group">
+        <button class="guide-tab-btn active" data-target="guide-pane-hombre">Jersey Hombre (6 a XL)</button>
+        <button class="guide-tab-btn" data-target="guide-pane-chicas">Jersey Chicas (6 a XL)</button>
+      </div>
+
+      <!-- TABLA 1: JERSEY HOMBRE -->
+      <div class="guide-table-pane active" id="guide-pane-hombre">
+        <h4 style="font-family: var(--font-heading); font-size: 1rem; color: #FFFFFF; margin-bottom: 0.5rem;">
+          Tabla de Medidas - Jersey Hombre
+        </h4>
+        <div class="size-table-wrap">
+          <table class="size-guide-table">
+            <thead>
+              <tr>
+                <th>Talla</th>
+                <th>Largo</th>
+                <th>Ancho</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>6</strong></td>
+                <td>50 cm</td>
+                <td>35 cm</td>
+              </tr>
+              <tr>
+                <td><strong>8</strong></td>
+                <td>53 cm</td>
+                <td>38 cm</td>
+              </tr>
+              <tr>
+                <td><strong>10</strong></td>
+                <td>56 cm</td>
+                <td>41 cm</td>
+              </tr>
+              <tr>
+                <td><strong>12</strong></td>
+                <td>59 cm</td>
+                <td>44 cm</td>
+              </tr>
+              <tr>
+                <td><strong>14</strong></td>
+                <td>62 cm</td>
+                <td>46 cm</td>
+              </tr>
+              <tr>
+                <td><strong>16</strong></td>
+                <td>65 cm</td>
+                <td>48 cm</td>
+              </tr>
+              <tr>
+                <td><strong>S</strong></td>
+                <td>70 cm</td>
+                <td>49 cm</td>
+              </tr>
+              <tr>
+                <td><strong>M</strong></td>
+                <td>72 cm</td>
+                <td>51 cm</td>
+              </tr>
+              <tr>
+                <td><strong>L</strong></td>
+                <td>74 cm</td>
+                <td>53 cm</td>
+              </tr>
+              <tr>
+                <td><strong>XL</strong></td>
+                <td>76 cm</td>
+                <td>55 cm</td>
+              </tr>
+              <tr class="oversize-highlight-row">
+                <td><strong>Oversize</strong></td>
+                <td>+3 cm</td>
+                <td>+3 cm</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="guide-note-box">
+          <strong style="color: #FFFFFF;">👕 Corte Oversize:</strong> En cualquier talla seleccionada, se suman <strong>3 cm adicionales</strong> al largo y al ancho para una caída holgada y estilizada.
+        </div>
+      </div>
+
+      <!-- TABLA 2: JERSEY CHICAS -->
+      <div class="guide-table-pane" id="guide-pane-chicas">
+        <h4 style="font-family: var(--font-heading); font-size: 1rem; color: #FFFFFF; margin-bottom: 0.5rem;">
+          Tabla de Medidas - Jersey Chicas
+        </h4>
+        <div class="size-table-wrap">
+          <table class="size-guide-table">
+            <thead>
+              <tr>
+                <th>Talla</th>
+                <th>Largo</th>
+                <th>Ancho</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>6</strong></td>
+                <td>47 cm</td>
+                <td>31 cm</td>
+              </tr>
+              <tr>
+                <td><strong>8</strong></td>
+                <td>50 cm</td>
+                <td>35 cm</td>
+              </tr>
+              <tr>
+                <td><strong>10</strong></td>
+                <td>53 cm</td>
+                <td>38 cm</td>
+              </tr>
+              <tr>
+                <td><strong>12</strong></td>
+                <td>56 cm</td>
+                <td>45 cm</td>
+              </tr>
+              <tr>
+                <td><strong>14</strong></td>
+                <td>58 cm</td>
+                <td>43 cm</td>
+              </tr>
+              <tr>
+                <td><strong>16</strong></td>
+                <td>62 cm</td>
+                <td>45 cm</td>
+              </tr>
+              <tr>
+                <td><strong>S</strong></td>
+                <td>66 cm</td>
+                <td>46 cm</td>
+              </tr>
+              <tr>
+                <td><strong>M</strong></td>
+                <td>68 cm</td>
+                <td>48 cm</td>
+              </tr>
+              <tr>
+                <td><strong>L</strong></td>
+                <td>70 cm</td>
+                <td>50 cm</td>
+              </tr>
+              <tr>
+                <td><strong>XL</strong></td>
+                <td>72 cm</td>
+                <td>52 cm</td>
+              </tr>
+              <tr class="oversize-highlight-row">
+                <td><strong>Oversize</strong></td>
+                <td>+3 cm</td>
+                <td>+3 cm</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="guide-note-box">
+          <div style="margin-bottom: 0.4rem;">
+            <strong style="color: #FFFFFF;">👗 Entalle en Cintura:</strong> En la cintura reduce <strong>2 cm por talla</strong> para un calce anatómico femenino perfecto.
+          </div>
+          <div>
+            <strong style="color: #FFFFFF;">👕 Corte Oversize:</strong> En cualquier talla seleccionada, se suman <strong>3 cm adicionales</strong> al largo y al ancho.
+          </div>
+        </div>
+      </div>
+
+      <!-- Calculadora Interactiva Adaptada a 6 - XL -->
+      <div class="size-calculator-box" style="margin-top: 1.5rem; background: var(--bg-surface); padding: 1.5rem; border-radius: var(--radius-xs); border: 1px solid var(--bg-card-border);">
+        <h4 style="font-family: var(--font-heading); font-size: 1.05rem; margin-bottom: 0.8rem; color: #FFFFFF;">
+          Calculadora de Talla Personalizada (Tallas 6 a XL)
+        </h4>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem;">
+          <div>
+            <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Estatura (cm)</label>
+            <input type="number" id="calc-height" class="form-input" placeholder="Ej. 170" />
+          </div>
+          <div>
+            <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Peso (kg)</label>
+            <input type="number" id="calc-weight" class="form-input" placeholder="Ej. 65" />
+          </div>
+          <div>
+            <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Preferencia de Corte</label>
+            <select id="calc-fit" class="form-input" style="background: var(--bg-card); color: #FFFFFF;">
+              <option value="regular">Ajuste Regular / Estándar</option>
+              <option value="holgado">Oversize (+3 cm largo y ancho)</option>
+              <option value="compresivo">Ajustado al Cuerpo</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn btn-white btn-sm" id="calc-size-btn" style="width: 100%;">
+          Calcular Mi Talla Recomendada
+        </button>
+
+        <div id="calc-result-box" style="margin-top: 1rem; display: none;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carrito de Compras Lateral Deslizable -->
+  <div class="drawer-backdrop" id="cart-drawer-backdrop"></div>
+  <aside class="drawer-panel" id="cart-drawer">
+    <div class="drawer-header">
+      <div class="drawer-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+        <span>Tu Carrito <span id="cart-drawer-count">(0)</span></span>
+      </div>
+      <button class="modal-close-btn" id="cart-drawer-close-btn" style="position: static;">✕</button>
+    </div>
+
+    <!-- Lista de Prendas en Carrito -->
+    <div class="drawer-items-list" id="cart-drawer-items">
+      <!-- Inyectado mediante JavaScript -->
+    </div>
+
+    <!-- Pie del Carrito -->
+    <div class="drawer-footer">
+      <!-- Campo de Cupón / Referido -->
+      <div class="coupon-row">
+        <input type="text" id="coupon-code-input" class="coupon-input" placeholder="Cupón o Referido (ej. BARBOS10)" />
+        <button class="btn btn-secondary btn-sm" id="apply-coupon-btn">Aplicar</button>
+      </div>
+
+      <div id="applied-coupon-container"></div>
+
+      <!-- Resumen de Precios -->
+      <div class="cart-summary-rows">
+        <div class="summary-row">
+          <span>Subtotal:</span>
+          <span id="cart-drawer-subtotal">$ 0</span>
+        </div>
+        <div class="summary-row" id="cart-drawer-discount-row" style="display: none; color: #FFFFFF;">
+          <span>Descuento aplicado:</span>
+          <span id="cart-drawer-discount">-$ 0</span>
+        </div>
+        <div class="summary-row total-row">
+          <span>Total:</span>
+          <span class="total-amount" id="cart-drawer-total">$ 0</span>
+        </div>
+      </div>
+
+      <!-- Botones de Acción -->
+      <div class="drawer-checkout-buttons">
+        <button class="btn btn-whatsapp" id="cart-whatsapp-checkout-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></svg>
+          Pedir por WhatsApp (+57 314 3937314)
+        </button>
+
+        <button class="btn btn-white" id="cart-online-checkout-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Finalizar Pedido en Línea
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Panel Lateral de Prendas Guardadas -->
+  <div class="drawer-backdrop" id="wishlist-drawer-backdrop"></div>
+  <aside class="drawer-panel" id="wishlist-drawer">
+    <div class="drawer-header">
+      <div class="drawer-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        <span>Prendas Guardadas <span id="wishlist-drawer-count">(0)</span></span>
+      </div>
+      <button class="modal-close-btn" id="wishlist-drawer-close-btn" style="position: static;">✕</button>
+    </div>
+
+    <div class="drawer-items-list" id="wishlist-drawer-items">
+      <!-- Inyectado mediante JavaScript -->
+    </div>
+  </aside>
+
+  <!-- Modal de Checkout / Formulario de Despacho -->
+  <div class="modal-overlay" id="checkout-modal-overlay">
+    <div class="modal-container checkout-modal-container" id="checkout-modal-content">
+      <!-- Inyectado mediante JavaScript -->
+    </div>
+  </div>
+
+  <!-- Contenedor de Notificaciones Toast -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Script Standalone Principal (Funciona directamente en file:/// y en servidor) -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
